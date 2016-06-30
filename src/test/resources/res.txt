@@ -1,0 +1,2 @@
+This is a test resource file for cn.sel.jutil.application.ResourceReader.
+测试文件
