@@ -67,7 +67,7 @@ public abstract class SettingsLoader
         InputStream resourceStream = classLoader.getResourceAsStream(filename);
         if(resourceStream == null)
         {
-            throw new IllegalStateException("The specified file is not found in the!");
+            throw new IllegalStateException("The specified file is not found!");
         }
         Properties properties = new Properties();
         try
