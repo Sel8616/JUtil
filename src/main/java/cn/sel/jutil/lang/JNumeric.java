@@ -15,68 +15,54 @@
  */
 package cn.sel.jutil.lang;
 
+import java.math.BigDecimal;
+
 public class JNumeric
 {
-    public static boolean between(Number num, double minValue, double maxValue)
+    public static boolean between(Number number, double minValue, double maxValue)
     {
-        Class<? extends Number> clazz = num.getClass();
-        if(Byte.class.equals(clazz))
-        {
-            byte byteValue = num.byteValue();
-            return num.byteValue() >= minValue && byteValue <= maxValue;
-        } else if(Short.class.equals(clazz))
-        {
-            short shortValue = num.shortValue();
-            return shortValue >= minValue && shortValue <= maxValue;
-        } else if(Integer.class.equals(clazz))
-        {
-            int intValue = num.intValue();
-            return intValue >= minValue && intValue <= maxValue;
-        } else if(Long.class.equals(clazz))
-        {
-            long longValue = num.longValue();
-            return longValue >= minValue && longValue <= maxValue;
-        } else if(Float.class.equals(clazz))
-        {
-            float floatValue = num.floatValue();
-            return floatValue >= minValue && floatValue <= maxValue;
-        } else if(Double.class.equals(clazz))
-        {
-            double doubleValue = num.doubleValue();
-            return doubleValue >= minValue && doubleValue <= maxValue;
-        } else
-        {
-            throw new UnsupportedOperationException("Only byte/short/int/long/float/double and their wrapper classes are supported!");
-        }
+        Class<? extends Number> clazz = number.getClass();
+        double doubleValue = number.doubleValue();
+        return doubleValue >= minValue && doubleValue <= maxValue;
     }
 
-    public static boolean isByte(Number num)
+    public static boolean isByte(Number number)
     {
-        return between(num, Byte.MIN_VALUE, Byte.MAX_VALUE);
+        return between(number, Byte.MIN_VALUE, Byte.MAX_VALUE) && isInt(number);
     }
 
-    public static boolean isShort(Number num)
+    public static boolean isShort(Number number)
     {
-        return between(num, Short.MIN_VALUE, Short.MAX_VALUE);
+        return between(number, Short.MIN_VALUE, Short.MAX_VALUE) && isInt(number);
     }
 
-    public static boolean isInteger(Number num)
+    public static boolean isInteger(Number number)
     {
-        return between(num, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return between(number, Integer.MIN_VALUE, Integer.MAX_VALUE) && isInt(number);
     }
 
-    public static boolean isLong(Number num)
+    public static boolean isLong(Number number)
     {
-        return between(num, Long.MIN_VALUE, Long.MAX_VALUE);
+        return between(number, Long.MIN_VALUE, Long.MAX_VALUE) && isInt(number);
     }
 
-    public static boolean isFloat(Number num)
+    public static boolean isFloat(Number number)
     {
-        return between(num, Float.MIN_VALUE, Float.MAX_VALUE);
+        return between(number, -Float.MAX_VALUE, Float.MAX_VALUE) && isDecimal(number);
     }
 
-    public static boolean isDouble(Number num)
+    public static boolean isDouble(Number number)
     {
-        return between(num, Double.MIN_VALUE, Double.MAX_VALUE);
+        return between(number, -Double.MAX_VALUE, Double.MAX_VALUE) && isDecimal(number);
+    }
+
+    public static boolean isInt(Number number)
+    {
+        return new BigDecimal(number.toString()).scale() == 0;
+    }
+
+    public static boolean isDecimal(Number number)
+    {
+        return !isInt(number);
     }
 }

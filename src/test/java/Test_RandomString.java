@@ -49,6 +49,8 @@ public class Test_RandomString
         System.out.println(RandomString.generate(10, "AxByCzD0", StringParity.EVEN));
         System.out.println("----------------------------------------------------------------");
         System.out.println("generateWithNumbersAndLetters(10,['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],ODD)");
-        System.out.println(RandomString.generate(10, new char[]{'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'}, StringParity.ODD));
+        System.out.println(RandomString.generate(10, new char[]{
+                'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'
+        }, StringParity.ODD));
     }
 }

@@ -27,19 +27,7 @@ public class JStringer
 {
     protected static final String UNSUPPORTED_CLASS = "Unsupported class!";
 
-    public enum KVPattern
-    {
-        /**
-         * key=value
-         */
-        MAP_DEFAULT,
-        /**
-         * "key":value
-         */
-        JSON_LIKE
-    }
-
-    //region String -> Primitive
+    //region String -> Primitive Types
     public static int string2int(String string)
     {
         return Integer.parseInt(string);
@@ -71,7 +59,7 @@ public class JStringer
     }
     //endregion
 
-    //region String -> Wrapper
+    //region String -> Wrapper Types
     public static Integer string2Integer(String string)
     {
         return Integer.valueOf(string);
@@ -109,7 +97,7 @@ public class JStringer
         {
             return (T)string;
         }
-        if(string == null || string.isEmpty())
+        if(JText.isNullOrEmpty(string))
         {
             return null;
         }
@@ -139,9 +127,9 @@ public class JStringer
         }
         throw new IllegalArgumentException(UNSUPPORTED_CLASS);
     }
-    //endregion
 
-    public static Object stringArray2ObjectArray(String[] array, Class<?> clazz)
+    @NonNull
+    public static Object stringArray2ObjectArray(@NonNull String[] array, Class<?> clazz)
     {
         int length = array.length;
         if(String[].class.equals(clazz))
@@ -453,10 +441,23 @@ public class JStringer
         }
         return null;
     }
+    //endregion
 
     @NonNull
     private static String getKVPairString(Object key, Object value, @Nullable KVPattern kvPattern)
     {
         return String.format(kvPattern == null || kvPattern == KVPattern.MAP_DEFAULT ? "%s=%s" : "\"%s\":%s", key, value);
+    }
+
+    public enum KVPattern
+    {
+        /**
+         * key=value
+         */
+        MAP_DEFAULT,
+        /**
+         * "key":value
+         */
+        JSON_LIKE
     }
 }

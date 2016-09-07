@@ -20,13 +20,6 @@ import cn.sel.jutil.annotation.note.Nullable;
 
 public class JText
 {
-    public enum StringParity
-    {
-        ANY,
-        EVEN,
-        ODD
-    }
-
     public static final String EMPTY = "";
 
     public static boolean isNullOrEmpty(@Nullable String string)
@@ -34,6 +27,7 @@ public class JText
         return string == null || string.isEmpty();
     }
 
+    @NonNull
     public static StringParity getParity(@NonNull String string)
     {
         int sum = 0;
@@ -44,6 +38,7 @@ public class JText
         return sum % 2 == 0 ? StringParity.ODD : StringParity.EVEN;
     }
 
+    @Nullable
     public static String getPrefix(@Nullable String string, int length)
     {
         if(string == null)
@@ -62,6 +57,7 @@ public class JText
         return string.substring(0, length);
     }
 
+    @Nullable
     public static String getPostfix(@Nullable String string, int length)
     {
         if(string == null)
@@ -78,5 +74,12 @@ public class JText
             return string;
         }
         return string.substring(totalLength - length, totalLength);
+    }
+
+    public enum StringParity
+    {
+        ANY,
+        EVEN,
+        ODD
     }
 }

@@ -17,9 +17,13 @@ package cn.sel.jutil.calendar;
 
 import cn.sel.jutil.annotation.note.NonNull;
 import cn.sel.jutil.annotation.note.Nullable;
+import cn.sel.jutil.lang.JText;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 public class DateTime
 {
@@ -36,6 +40,44 @@ public class DateTime
         return false;
     }
 
+    public static Date fromString(@NonNull String string, @NonNull String pattern)
+            throws ParseException
+    {
+        return fromString(string, pattern, null);
+    }
+
+    public static Date fromString(@NonNull String string, @NonNull String pattern, @Nullable Locale locale)
+            throws ParseException
+    {
+        Objects.requireNonNull(string);
+        Objects.requireNonNull(pattern);
+        return getParsingFormat(pattern, locale).parse(string);
+    }
+
+    public static String toString(@NonNull Date date)
+    {
+        Objects.requireNonNull(date);
+        return getStringerFormat(null, Locale.getDefault()).format(date);
+    }
+
+    public static String toString(@NonNull Date date, @Nullable String pattern)
+    {
+        Objects.requireNonNull(date);
+        return getStringerFormat(pattern, Locale.getDefault()).format(date);
+    }
+
+    public static String toString(@NonNull Date date, @Nullable Locale locale)
+    {
+        Objects.requireNonNull(date);
+        return getStringerFormat(null, locale).format(date);
+    }
+
+    public static String toString(@NonNull Date date, @Nullable String pattern, @Nullable Locale locale)
+    {
+        Objects.requireNonNull(date);
+        return getStringerFormat(pattern, locale).format(date);
+    }
+
     @NonNull
     public static SimpleDateFormat getParsingFormat(@NonNull String pattern, @Nullable Locale locale)
     {
@@ -45,6 +87,6 @@ public class DateTime
     @NonNull
     public static SimpleDateFormat getStringerFormat(@Nullable String pattern, @Nullable Locale locale)
     {
-        return new SimpleDateFormat(pattern == null || pattern.isEmpty() ? "yyyy-MM-dd HH:mm:ss.SSS" : pattern, locale == null ? Locale.getDefault() : locale);
+        return new SimpleDateFormat(JText.isNullOrEmpty(pattern) ? "yyyy-MM-dd HH:mm:ss.SSS" : pattern, locale == null ? Locale.getDefault() : locale);
     }
 }

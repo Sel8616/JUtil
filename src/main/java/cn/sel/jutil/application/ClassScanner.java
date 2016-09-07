@@ -16,6 +16,7 @@
 package cn.sel.jutil.application;
 
 import cn.sel.jutil.annotation.note.Nullable;
+import cn.sel.jutil.lang.JText;
 
 import java.io.File;
 import java.io.IOException;
@@ -62,7 +63,7 @@ public class ClassScanner
      */
     private Set<Class<?>> getClasses(@Nullable String packageName, @Nullable Set<Class<?>> filter, int type)
     {
-        if(packageName == null || packageName.isEmpty())
+        if(JText.isNullOrEmpty(packageName))
         {
             packageName = "";
         }
@@ -99,17 +100,20 @@ public class ClassScanner
         {
             return;
         }
-        File[] files_dir = dir.listFiles(file->file.isDirectory() || file.getName().endsWith(EXT_CLASS));
-        for(File file : files_dir)
+        File[] filesDir = dir.listFiles(file->file.isDirectory() || file.getName().endsWith(EXT_CLASS));
+        if(filesDir != null)
         {
-            String fileName = file.getName();
-            if(file.isDirectory())
+            for(File file : filesDir)
             {
-                scanClassFiles(packageName.isEmpty() ? fileName : packageName + '.' + fileName, file.getAbsolutePath(), classes, filter, type);
-            } else
-            {
-                String className = fileName.substring(0, fileName.length() - 6);
-                tryAddClass(packageName, classes, filter, type, className);
+                String fileName = file.getName();
+                if(file.isDirectory())
+                {
+                    scanClassFiles(packageName.isEmpty() ? fileName : packageName + '.' + fileName, file.getAbsolutePath(), classes, filter, type);
+                } else
+                {
+                    String className = fileName.substring(0, fileName.length() - 6);
+                    tryAddClass(packageName, classes, filter, type, className);
+                }
             }
         }
     }

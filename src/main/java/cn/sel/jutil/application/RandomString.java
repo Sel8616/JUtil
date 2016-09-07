@@ -28,19 +28,11 @@ import java.util.Random;
  */
 public class RandomString
 {
-    private static final String INVALID_LENGTH = "Length of the expected random string must be larger than 0!";
-    private static final String INVALID_DIGITS = "Digits for the expected random string must not be null or empty!";
-
-    public enum CharacterCase
-    {
-        ANY,
-        LOWER,
-        UPPER
-    }
-
     public static final String LOWER_CHARS = "abcdefghijklmnopqrstuvwxyz";
     public static final String UPPER_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String NUMBERS = "0123456789";
+    private static final String INVALID_LENGTH = "Length of the expected random string must be larger than 0!";
+    private static final String INVALID_DIGITS = "Digits for the expected random string must not be null or empty!";
 
     /**
      * Generate a random string using '0'-'9' with the specifications.
@@ -178,5 +170,12 @@ public class RandomString
             result = String.valueOf(cs);
         } while(stringParity != StringParity.ANY && JText.getParity(result) != stringParity);
         return result;
+    }
+
+    public enum CharacterCase
+    {
+        ANY,
+        LOWER,
+        UPPER
     }
 }

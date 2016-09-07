@@ -40,14 +40,21 @@ public class Test_JNumeric
         System.out.println("isFloat(-0.618)");
         System.out.println(JNumeric.isFloat(-0.618));
         System.out.println("----------------------------------------------------------------");
+        System.out.println("isDouble(0)");
+        System.out.println(JNumeric.isDouble(0));
+        System.out.println("----------------------------------------------------------------");
         System.out.println("isDouble(1)");
         System.out.println(JNumeric.isDouble(1));
         System.out.println("----------------------------------------------------------------");
-        System.out.println("between(-1, 0, 100)");
-        System.out.println(JNumeric.between(-1, 0, 100));
+        System.out.println("isDouble(-3.0)");
+        System.out.println(JNumeric.isDouble(-3.0));
+        System.out.println("----------------------------------------------------------------");
         int num = -1;
+        System.out.println("between(-1, 0, 100)");
         System.out.println(JNumeric.between(num, 0, 100));
+        System.out.println("----------------------------------------------------------------");
         Integer number = 10;
+        System.out.println("between(10, 0, 100)");
         System.out.println(JNumeric.between(number, 0, 100));
     }
 }

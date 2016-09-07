@@ -21,9 +21,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * <li>METHOD</li>The annotated method will never return null.
- * <li>PARAMETER</li>The annotated parameter must not be null.
- * <li>FIELD / LOCAL_VARIABLE</li>The annotated parameter field/variable can not be null.
+ * <p>METHOD::The annotated method will never return null.</p>
+ * <p>PARAMETER::Null shouldn't be passed as the annotated parameter value.</p>
+ * <p>FIELD/LOCAL_VARIABLE::The annotated field/variable can not be null.</p>
  */
 @Target({ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.LOCAL_VARIABLE})
 @Retention(RetentionPolicy.CLASS)

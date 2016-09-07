@@ -97,7 +97,7 @@ public class ResourceReader
                 {
                     byteArrayOutputStream.write(buffer, 0, len);
                 }
-                final String full = byteArrayOutputStream.toString(charsetName);
+                String full = byteArrayOutputStream.toString(charsetName);
                 return full.split(lineSeparator);
             }
         } catch(IOException e)

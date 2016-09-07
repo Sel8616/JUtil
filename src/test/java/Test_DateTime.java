@@ -15,8 +15,7 @@
  */
 
 import cn.sel.jutil.calendar.Comparator;
-import cn.sel.jutil.calendar.DateTimeParser;
-import cn.sel.jutil.calendar.DateTimeStringer;
+import cn.sel.jutil.calendar.DateTime;
 import cn.sel.jutil.calendar.TimeStamp;
 import org.junit.Test;
 
@@ -88,36 +87,36 @@ public class Test_DateTime
         System.out.println("timeFull24()");
         System.out.println(TimeStamp.timeFull24());
         //endregion
-        //region cn.sel.jutil.calendar.DateTimeStringer
+        //region cn.sel.jutil.calendar.DateTime
         System.out.println();
-        System.out.println("< DateTimeStringer >");
+        System.out.println("< DateTime >");
         System.out.println("================================================================");
         System.out.println("toString(new date())");
-        System.out.println(DateTimeStringer.toString(new Date()));
+        System.out.println(DateTime.toString(new Date()));
         System.out.println("----------------------------------------------------------------");
         System.out.println("toString(new date(),\"dd/MM/yyyy HH:mm:ss\")");
-        System.out.println(DateTimeStringer.toString(new Date(), "dd/MM/yyyy HH:mm:ss"));
+        System.out.println(DateTime.toString(new Date(), "dd/MM/yyyy HH:mm:ss"));
         System.out.println("----------------------------------------------------------------");
         System.out.println("toString(new date(), Locale.CHINESE)");
-        System.out.println(DateTimeStringer.toString(new Date(), Locale.CHINESE));
+        System.out.println(DateTime.toString(new Date(), Locale.CHINESE));
         System.out.println("----------------------------------------------------------------");
         System.out.println("toString(new date(), \"yyyy/MM/dd HH-mm-ss.SSS\", Locale.SIMPLIFIED_CHINESE)");
-        System.out.println(DateTimeStringer.toString(new Date(), "yyyy/MM/dd HH-mm-ss.SSS", Locale.SIMPLIFIED_CHINESE));
+        System.out.println(DateTime.toString(new Date(), "yyyy/MM/dd HH-mm-ss.SSS", Locale.SIMPLIFIED_CHINESE));
         //endregion
-        //region cn.sel.jutil.calendar.DateTimeParser
+        //region cn.sel.jutil.calendar.DateTime
         System.out.println();
-        System.out.println("< DateTimeParser >");
+        System.out.println("< DateTime >");
         System.out.println("================================================================");
         try
         {
             System.out.println("fromString(\"2016-02-07\", \"yyyy-MM-dd\")");
-            System.out.println(DateTimeParser.fromString("2016-02-07", "yyyy-MM-dd"));
+            System.out.println(DateTime.fromString("2016-02-07", "yyyy-MM-dd"));
             System.out.println("----------------------------------------------------------------");
             System.out.println("fromString(\"2016-02-07 12:10:30\", \"yyyy-MM-dd HH:mm:ss\")");
-            System.out.println(DateTimeParser.fromString("2016-02-07 12:10:30", "yyyy-MM-dd HH:mm:ss"));
+            System.out.println(DateTime.fromString("2016-02-07 12:10:30", "yyyy-MM-dd HH:mm:ss"));
             System.out.println("----------------------------------------------------------------");
             System.out.println("fromString(\"2016-02-14\", \"yyyy/MM/dd\", Locale.getDefault())");
-            System.out.println(DateTimeParser.fromString("2016-02-14", "yyyy/MM/dd", Locale.getDefault()));
+            System.out.println(DateTime.fromString("2016-02-14", "yyyy/MM/dd", Locale.getDefault()));
         } catch(ParseException e)
         {
             e.printStackTrace();

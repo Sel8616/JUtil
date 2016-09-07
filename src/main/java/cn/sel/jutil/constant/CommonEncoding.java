@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.sel.jutil.annotation.note;
+package cn.sel.jutil.constant;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-/**
- * The annotated type/class is singleton.
- */
-@Target({ElementType.TYPE, ElementType.TYPE_USE})
-@Retention(RetentionPolicy.CLASS)
-public @interface Singleton
+public class CommonEncoding
 {
+    public static final String ASCII = "ASCII";
+    public static final String US_ASCII = "US-ASCII";
+    public static final String ISO_8859_1 = "ISO-8859-1";
+    public static final String UTF_8 = "UTF-8";
+    public static final String UTF_16 = "UTF-16";
+    public static final String UTF_16_LE = "UTF-16LE";
+    public static final String UTF_16_BE = "UTF-16BE";
+    public static final String GB2312 = "GB2312";
+    public static final String GBK = "GBK";
+    public static final String BIG5 = "BIG5";
 }

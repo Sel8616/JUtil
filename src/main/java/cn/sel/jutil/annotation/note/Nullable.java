@@ -21,9 +21,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * <li>METHOD</li>The annotated method may return null.
- * <li>PARAMETER</li>The annotated parameter could safely be null.
- * <li>FIELD / LOCAL_VARIABLE</li>The annotated parameter field/variable may be null.
+ * <p>METHOD::The annotated method may return null.</p>
+ * <p>PARAMETER::The annotated parameter value could safely be null.</p>
+ * <p>FIELD/LOCAL_VARIABLE::The annotated field/variable can be null.</p>
  */
 @Target({ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.LOCAL_VARIABLE})
 @Retention(RetentionPolicy.CLASS)

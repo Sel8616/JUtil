@@ -34,12 +34,18 @@ public class Test_JObject
         System.out.println(JObject.include(new String[]{"abc", "xyz"}, "aaa"));
         System.out.println("----------------------------------------------------------------");
         System.out.println("joinArray(new String[]{\"aa\", \"bb\"}, new String[]{\"cc\", \"dd\"}, new String[]{\"ee\"})");
-        System.out.println(Arrays.toString(JObject.joinArray(new String[]{"aa", "bb"}, new String[]{"cc", "dd"}, new String[]{"ee"})));
+        System.out.println(Arrays.toString(JObject.joinArray(new String[]{"aa", "bb"}, new String[]{
+                "cc", "dd"
+        }, new String[]{"ee"})));
         System.out.println("----------------------------------------------------------------");
         System.out.println("joinArray(new String[]{\"aa\", \"bb\"}, new String[]{\"cc\", \"dd\"}, new String[]{\"ee\"})");
-        System.out.println(Arrays.toString(JObject.joinArray(new Integer[]{1, 2}, new Integer[]{3, 4}, new Integer[]{5})));
+        System.out.println(Arrays.toString(JObject.joinArray(new Integer[]{1, 2}, new Integer[]{3, 4}, new Integer[]{
+                5
+        })));
         System.out.println("----------------------------------------------------------------");
         System.out.println("joinArray(new Boolean[]{true, false}, new Boolean[]{true, true}, new Boolean[]{false})");
-        System.out.println(Arrays.toString(JObject.joinArray(new Boolean[]{true, false}, new Boolean[]{true, true}, new Boolean[]{false})));
+        System.out.println(Arrays.toString(JObject.joinArray(new Boolean[]{true, false}, new Boolean[]{
+                true, true
+        }, new Boolean[]{false})));
     }
 }

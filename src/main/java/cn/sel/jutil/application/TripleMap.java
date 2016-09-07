@@ -26,7 +26,7 @@ public class TripleMap<K1, K2, V>
 {
     private final boolean isFirstKeysNullable;
     private final boolean isSecondKeysNullable;
-    private final HashMap<K1, HashMap<K2, V>> theMap;
+    private final HashMap<K1, HashMap<K2, V>> MAP;
 
     public TripleMap()
     {
@@ -37,7 +37,7 @@ public class TripleMap<K1, K2, V>
     {
         this.isFirstKeysNullable = isFirstKeysNullable;
         this.isSecondKeysNullable = isSecondKeysNullable;
-        theMap = new HashMap<>();
+        MAP = new HashMap<>();
     }
 
     public void put(K1 key1, K2 key2, V value)
@@ -50,11 +50,11 @@ public class TripleMap<K1, K2, V>
         {
             Objects.requireNonNull(key2, "The second KEY could not be null!");
         }
-        HashMap<K2, V> map = theMap.get(key1);
+        HashMap<K2, V> map = MAP.get(key1);
         if(map == null)
         {
             map = new HashMap<>();
-            theMap.put(key1, map);
+            MAP.put(key1, map);
         }
         map.put(key2, value);
     }
@@ -69,7 +69,7 @@ public class TripleMap<K1, K2, V>
         {
             Objects.requireNonNull(key2, "The second KEY could not be null!");
         }
-        Map<K2, V> map = theMap.get(key1);
+        Map<K2, V> map = MAP.get(key1);
         return map == null ? null : map.get(key2);
     }
 }

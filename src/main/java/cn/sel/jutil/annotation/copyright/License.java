@@ -13,7 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.sel.jutil.annotation.note;
+package cn.sel.jutil.annotation.copyright;
+
+import cn.sel.jutil.constant.OpenSourceLicense;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -21,10 +23,15 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * The annotated type/class is singleton.
+ * Open-Source license.
  */
-@Target({ElementType.TYPE, ElementType.TYPE_USE})
+@Target({ElementType.PACKAGE, ElementType.TYPE, ElementType.ANNOTATION_TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.CLASS)
-public @interface Singleton
+public @interface License
 {
+    String name() default OpenSourceLicense.UNLIC;
+
+    String version() default "";
+
+    String notice() default "";
 }
