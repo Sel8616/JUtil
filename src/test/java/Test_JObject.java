@@ -15,6 +15,7 @@
  */
 
 import cn.sel.jutil.lang.JObject;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -28,10 +29,14 @@ public class Test_JObject
         System.out.println("< JObject >");
         System.out.println("================================================================");
         System.out.println("Include? new Integer[]{1, 2, 3, 4, 5}, 1?");
-        System.out.println(JObject.include(new Integer[]{1, 2, 3, 4, 5}, 1));
+        boolean include1 = JObject.include(new Integer[]{1, 2, 3, 4, 5}, 1);
+        System.out.println(include1);
+        Assert.assertEquals(true, include1);
         System.out.println("----------------------------------------------------------------");
         System.out.println("Include? new String[]{\"abc\", \"xyz\"}, \"aaa\")");
-        System.out.println(JObject.include(new String[]{"abc", "xyz"}, "aaa"));
+        boolean include2 = JObject.include(new String[]{"abc", "xyz"}, "aaa");
+        System.out.println(include2);
+        Assert.assertEquals(false, include2);
         System.out.println("----------------------------------------------------------------");
         System.out.println("joinArray(new String[]{\"aa\", \"bb\"}, new String[]{\"cc\", \"dd\"}, new String[]{\"ee\"})");
         System.out.println(Arrays.toString(JObject.joinArray(new String[]{"aa", "bb"}, new String[]{

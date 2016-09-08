@@ -15,6 +15,7 @@
  */
 package cn.sel.jutil.application;
 
+import cn.sel.jutil.annotation.note.Nullable;
 import cn.sel.jutil.lang.JText;
 import cn.sel.jutil.system.Environment;
 
@@ -29,11 +30,13 @@ import java.nio.charset.Charset;
  */
 public class ResourceReader
 {
+    @Nullable
     public static String readAsString(String resourceName)
     {
         return readAsString(resourceName, null);
     }
 
+    @Nullable
     public static String readAsString(String resourceName, String charsetName)
     {
         if(JText.isNullOrEmpty(charsetName) || !Charset.isSupported(charsetName))
@@ -63,16 +66,19 @@ public class ResourceReader
         return null;
     }
 
+    @Nullable
     public static String[] readAsArray(String resourceName)
     {
         return readAsArray(resourceName, null, null);
     }
 
+    @Nullable
     public static String[] readAsArray(String resourceName, String charsetName)
     {
         return readAsArray(resourceName, charsetName, null);
     }
 
+    @Nullable
     public static String[] readAsArray(String resourceName, String charsetName, String lineSeparator)
     {
         if(JText.isNullOrEmpty(charsetName) || !Charset.isSupported(charsetName))

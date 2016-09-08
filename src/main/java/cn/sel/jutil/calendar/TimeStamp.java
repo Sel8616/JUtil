@@ -18,6 +18,7 @@ package cn.sel.jutil.calendar;
 import cn.sel.jutil.annotation.note.Nullable;
 
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Locale;
 
@@ -28,6 +29,11 @@ public class TimeStamp
         return System.currentTimeMillis();
     }
 
+    public static long unix()
+    {
+        return System.currentTimeMillis() / 1000;
+    }
+
     public static Date javaDate()
     {
         return new Date();
@@ -35,17 +41,17 @@ public class TimeStamp
 
     public static java.sql.Date sqlDate()
     {
-        return new java.sql.Date(ms());
+        return new java.sql.Date(System.currentTimeMillis());
     }
 
     public static Time sqlTime()
     {
-        return new Time(ms());
+        return new Time(System.currentTimeMillis());
     }
 
-    public static long unix()
+    public static Timestamp sqlTimestamp()
     {
-        return System.currentTimeMillis() / 1000;
+        return new Timestamp(System.currentTimeMillis());
     }
 
     public static String date()

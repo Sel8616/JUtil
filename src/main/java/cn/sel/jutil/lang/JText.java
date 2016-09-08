@@ -22,6 +22,16 @@ public class JText
 {
     public static final String EMPTY = "";
 
+    public static boolean isNormal(@Nullable String string)
+    {
+        return string != null && !string.isEmpty();
+    }
+
+    public static boolean isEmpty(@Nullable String string)
+    {
+        return string != null && string.isEmpty();
+    }
+
     public static boolean isNullOrEmpty(@Nullable String string)
     {
         return string == null || string.isEmpty();

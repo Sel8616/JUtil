@@ -15,6 +15,7 @@
  */
 
 import cn.sel.jutil.lang.JText;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class Test_JText
@@ -26,18 +27,28 @@ public class Test_JText
         System.out.println("< JText >");
         System.out.println("================================================================");
         System.out.println("isNullOrEmpty(\"JUtil\")");
-        System.out.println(JText.isNullOrEmpty("JText"));
+        boolean bool = JText.isNullOrEmpty("JText");
+        System.out.println(bool);
+        Assert.assertEquals(false, bool);
         System.out.println("----------------------------------------------------------------");
         System.out.println("isNullOrEmpty(null)");
-        System.out.println(JText.isNullOrEmpty(null));
+        bool = JText.isNullOrEmpty(null);
+        System.out.println(bool);
+        Assert.assertEquals(true, bool);
         System.out.println("----------------------------------------------------------------");
         System.out.println("getParity(\"JUtil\")");
-        System.out.println(JText.getParity("JUtil"));
+        JText.StringParity parity = JText.getParity("JUtil");
+        System.out.println(parity);
+        Assert.assertEquals(JText.StringParity.ODD, parity);
         System.out.println("----------------------------------------------------------------");
         System.out.println("getPrefix(\"cn.sel.jutil\",7)");
-        System.out.println(JText.getPrefix("cn.sel.jutil", 7));
+        String prefix = JText.getPrefix("cn.sel.jutil", 7);
+        System.out.println(prefix);
+        Assert.assertEquals("cn.sel.", prefix);
         System.out.println("----------------------------------------------------------------");
         System.out.println("getPostfix(\"hello_world\",5)");
-        System.out.println(JText.getPostfix("hello_world", 5));
+        String postfix = JText.getPostfix("hello_world", 5);
+        System.out.println(postfix);
+        Assert.assertEquals("world", postfix);
     }
 }

@@ -49,8 +49,8 @@ public class DateTime
     public static Date fromString(@NonNull String string, @NonNull String pattern, @Nullable Locale locale)
             throws ParseException
     {
-        Objects.requireNonNull(string);
-        Objects.requireNonNull(pattern);
+        Objects.requireNonNull(string, "The string value of the date must not be null!");
+        Objects.requireNonNull(pattern, "The format pattern must not be null!");
         return getParsingFormat(pattern, locale).parse(string);
     }
 

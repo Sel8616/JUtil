@@ -22,7 +22,7 @@ import java.lang.annotation.Target;
 
 /**
  * <p>METHOD::The annotated method will never return null.</p>
- * <p>PARAMETER::Null shouldn't be passed as the annotated parameter value.</p>
+ * <p>PARAMETER::Null shouldn't be passed as the annotated parameter value, or {@link NullPointerException} will be thrown!</p>
  * <p>FIELD/LOCAL_VARIABLE::The annotated field/variable can not be null.</p>
  */
 @Target({ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.LOCAL_VARIABLE})

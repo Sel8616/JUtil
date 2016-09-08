@@ -81,6 +81,7 @@ public class SecureUtil
     }
 
     public static String encryptWithAES(String string)
+            throws Exception
     {
         try
         {
@@ -90,11 +91,12 @@ public class SecureUtil
             return parseByte2HexStr(ccc);
         } catch(Exception e)
         {
-            throw new IllegalStateException("Encryption Failed!", e);
+            throw new Exception("Encryption Failed!", e);
         }
     }
 
     public static String decryptAES(String string)
+            throws Exception
     {
         if(JText.isNullOrEmpty(string))
         {
@@ -115,27 +117,41 @@ public class SecureUtil
             }
         } catch(Exception e)
         {
-            throw new IllegalStateException("Decryption Failed!", e);
+            throw new Exception("Decryption Failed!", e);
         }
         return null;
     }
 
     public static String encryptBASE64(String string)
+            throws Exception
     {
-        if(JText.isNullOrEmpty(string))
+        try
         {
-            return null;
+            if(!JText.isNullOrEmpty(string))
+            {
+                return Base64.getEncoder().encodeToString(string.getBytes());
+            }
+        } catch(Exception e)
+        {
+            throw new Exception("Encryption Failed!", e);
         }
-        return Base64.getEncoder().encodeToString(string.getBytes());
+        return null;
     }
 
     public static String decryptBASE64(String string)
+            throws Exception
     {
-        if(JText.isNullOrEmpty(string))
+        try
         {
-            return null;
+            if(!JText.isNullOrEmpty(string))
+            {
+                return new String(Base64.getDecoder().decode(string.getBytes()));
+            }
+        } catch(Exception e)
+        {
+            throw new Exception("Decryption Failed!", e);
         }
-        return new String(Base64.getDecoder().decode(string.getBytes()));
+        return null;
     }
 
     private static String parseByte2HexStr(byte buf[])

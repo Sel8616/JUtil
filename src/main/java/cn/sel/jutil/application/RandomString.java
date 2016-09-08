@@ -21,7 +21,6 @@ import cn.sel.jutil.lang.JText;
 import cn.sel.jutil.lang.JText.StringParity;
 
 import java.security.SecureRandom;
-import java.util.Random;
 
 /**
  * Random string generator
@@ -33,6 +32,7 @@ public class RandomString
     public static final String NUMBERS = "0123456789";
     private static final String INVALID_LENGTH = "Length of the expected random string must be larger than 0!";
     private static final String INVALID_DIGITS = "Digits for the expected random string must not be null or empty!";
+    private static final SecureRandom secureRandom = new SecureRandom();
 
     /**
      * Generate a random string using '0'-'9' with the specifications.
@@ -42,6 +42,7 @@ public class RandomString
      *
      * @return A random string.
      */
+    @NonNull
     public static String generateWithNumbers(int length, @Nullable StringParity stringParity)
     {
         return generate(length, NUMBERS, stringParity);
@@ -56,6 +57,7 @@ public class RandomString
      *
      * @return A random string.
      */
+    @NonNull
     public static String generateWithLetters(int length, @Nullable CharacterCase characterCase, @Nullable StringParity stringParity)
     {
         if(characterCase == null)
@@ -91,6 +93,7 @@ public class RandomString
      *
      * @return A random string.
      */
+    @NonNull
     public static String generateWithNumbersAndLetters(int length, @Nullable CharacterCase characterCase, @Nullable StringParity stringParity)
     {
         if(characterCase == null)
@@ -126,6 +129,7 @@ public class RandomString
      *
      * @return A random string.
      */
+    @NonNull
     public static String generate(int length, @NonNull String digits, @Nullable StringParity stringParity)
     {
         if(digits == null || digits.length() < 1)
@@ -144,6 +148,7 @@ public class RandomString
      *
      * @return A random string.
      */
+    @NonNull
     public static String generate(int length, @NonNull char[] digits, @Nullable StringParity stringParity)
     {
         if(length < 1)
@@ -159,13 +164,12 @@ public class RandomString
             stringParity = StringParity.ANY;
         }
         String result;
-        Random random = new SecureRandom();
         char[] cs = new char[length];
         do
         {
             for(int i = 0; i < length; i++)
             {
-                cs[i] = digits[random.nextInt(digits.length)];
+                cs[i] = digits[secureRandom.nextInt(digits.length)];
             }
             result = String.valueOf(cs);
         } while(stringParity != StringParity.ANY && JText.getParity(result) != stringParity);
