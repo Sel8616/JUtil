@@ -122,13 +122,11 @@ public class SecureUtil
 
     public static String encryptBASE64(String string)
     {
-        try
+        if(JText.isNullOrEmpty(string))
         {
-            return Base64.getEncoder().encodeToString(string.getBytes());
-        } catch(Exception e)
-        {
-            throw new IllegalStateException("Encryption Failed!", e);
+            return null;
         }
+        return Base64.getEncoder().encodeToString(string.getBytes());
     }
 
     public static String decryptBASE64(String string)
@@ -137,14 +135,7 @@ public class SecureUtil
         {
             return null;
         }
-        try
-        {
-            byte[] bytes = Base64.getDecoder().decode(string.getBytes());
-            return new String(bytes);
-        } catch(Exception e)
-        {
-            throw new IllegalStateException("Decryption Failed!", e);
-        }
+        return new String(Base64.getDecoder().decode(string.getBytes()));
     }
 
     private static String parseByte2HexStr(byte buf[])

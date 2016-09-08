@@ -25,7 +25,7 @@ dependencies {
 
 def pomPath = "$buildDir/classes/main/META-INF/maven/$project.group/$project.name/"
 
-task generatePomProperties(dependsOn: 'generatePomFileForBintrayPublication') {
+task generatePomProperties(dependsOn: 'generatePomFileForMavenPublication') {
     Properties pomProperties = new Properties()
     pomProperties.setProperty('groupId', project.group)
     pomProperties.setProperty('artifactId', project.name)
