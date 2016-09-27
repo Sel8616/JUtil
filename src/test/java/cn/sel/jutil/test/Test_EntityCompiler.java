@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import cn.sel.jutil.application.EntityCompiler;
+package cn.sel.jutil.test;import cn.sel.jutil.application.EntityCompiler;
 import org.junit.Test;
 
 import java.lang.reflect.Field;

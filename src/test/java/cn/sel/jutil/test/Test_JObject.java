@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import cn.sel.jutil.lang.JObject;
+package cn.sel.jutil.test;import cn.sel.jutil.lang.JObject;
 import org.junit.Assert;
 import org.junit.Test;
 

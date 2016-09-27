@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import cn.sel.jutil.annotation.note.NonNull;
+package cn.sel.jutil.test;import cn.sel.jutil.annotation.note.NonNull;
 import cn.sel.jutil.application.SettingsLoader;
 import org.junit.Test;
 

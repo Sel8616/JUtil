@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import cn.sel.jutil.application.ResourceReader;
+package cn.sel.jutil.test;import cn.sel.jutil.application.ResourceReader;
 import org.junit.Test;
 
 import java.util.Arrays;

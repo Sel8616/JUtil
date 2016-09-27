@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import cn.sel.jutil.calendar.Comparator;
+package cn.sel.jutil.test;import cn.sel.jutil.calendar.Comparator;
 import cn.sel.jutil.calendar.DateTime;
 import cn.sel.jutil.calendar.TimeStamp;
 import org.junit.Test;
