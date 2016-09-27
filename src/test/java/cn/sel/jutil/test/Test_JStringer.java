@@ -13,7 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.sel.jutil.test;import cn.sel.jutil.lang.JStringer;
+package cn.sel.jutil.test;
+
+import cn.sel.jutil.lang.JStringer;
 import cn.sel.jutil.lang.JStringer.KVPattern;
 import org.junit.Test;
 

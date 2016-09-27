@@ -13,7 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.sel.jutil.test;import cn.sel.jutil.application.RandomString;
+package cn.sel.jutil.test;
+
+import cn.sel.jutil.application.RandomString;
 import cn.sel.jutil.application.RandomString.CharacterCase;
 import cn.sel.jutil.lang.JText.StringParity;
 import org.junit.Test;
