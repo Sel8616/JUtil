@@ -29,4 +29,13 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 public @interface Nullable
 {
+    /**
+     * Comments for the annotated item.
+     */
+    String comment() default "";
+
+    /**
+     * Alias for {@link #comment()}
+     */
+    String value() default "";
 }
