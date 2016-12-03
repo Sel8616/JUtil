@@ -17,6 +17,7 @@ package cn.sel.jutil.lang;
 
 import cn.sel.jutil.annotation.note.NonNull;
 import cn.sel.jutil.annotation.note.Nullable;
+import cn.sel.jutil.constant.CharacterParity;
 
 public class JText
 {
@@ -38,14 +39,14 @@ public class JText
     }
 
     @NonNull
-    public static StringParity getParity(@NonNull String string)
+    public static CharacterParity getParity(@NonNull String string)
     {
         int sum = 0;
         for(char c : string.toCharArray())
         {
             sum += c;
         }
-        return sum % 2 == 0 ? StringParity.ODD : StringParity.EVEN;
+        return sum % 2 == 0 ? CharacterParity.ODD : CharacterParity.EVEN;
     }
 
     @Nullable
@@ -84,12 +85,5 @@ public class JText
             return string;
         }
         return string.substring(totalLength - length, totalLength);
-    }
-
-    public enum StringParity
-    {
-        ANY,
-        EVEN,
-        ODD
     }
 }

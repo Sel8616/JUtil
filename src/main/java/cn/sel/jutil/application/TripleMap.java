@@ -50,12 +50,7 @@ public class TripleMap<K1, K2, V>
         {
             Objects.requireNonNull(key2, "The second KEY could not be null!");
         }
-        HashMap<K2, V> map = MAP.get(key1);
-        if(map == null)
-        {
-            map = new HashMap<>();
-            MAP.put(key1, map);
-        }
+        HashMap<K2, V> map = MAP.computeIfAbsent(key1, k->new HashMap<>());
         map.put(key2, value);
     }
 

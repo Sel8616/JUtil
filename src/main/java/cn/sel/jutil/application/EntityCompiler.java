@@ -69,7 +69,7 @@ public class EntityCompiler
                         return Class.forName(fullClassName);
                     } else
                     {
-                        throw new IOException(String.format("无法创建目录'%s'！", fileDir));
+                        throw new IOException(String.format("Failed to make directory '%s'！", fileDir));
                     }
                 }
             }
@@ -120,7 +120,8 @@ public class EntityCompiler
      */
     public String createSetter(String fieldType, String fieldName)
     {
-        return "public void set" + getPostfix(fieldType, fieldName) + '(' + fieldType + ' ' + fieldName + ')' + '{' + "this." + fieldName + '=' + fieldName + ';' + '}';
+        return "public void set" + getPostfix(fieldType,
+                fieldName) + '(' + fieldType + ' ' + fieldName + ')' + '{' + "this." + fieldName + '=' + fieldName + ';' + '}';
     }
 
     /**
@@ -132,7 +133,7 @@ public class EntityCompiler
         {
             return "public " + fieldType + ' ' + getPostfix(fieldType, fieldName) + "()" + '{' + "return this." + fieldName + ';' + '}';
         }
-        return "public " + fieldType + " get" + getPostfix(fieldType, fieldName) + "()" + '{' + "return this." + fieldName + ';' + '}';
+        return "public " + fieldType + " getNode" + getPostfix(fieldType, fieldName) + "()" + '{' + "return this." + fieldName + ';' + '}';
     }
 
     /**

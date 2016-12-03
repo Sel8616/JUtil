@@ -33,9 +33,8 @@ public class DateTime
         {
             new SimpleDateFormat(datePattern, Locale.getDefault());
             return true;
-        } catch(Exception e)
+        } catch(Exception ignored)
         {
-            e.printStackTrace();
         }
         return false;
     }
@@ -46,10 +45,13 @@ public class DateTime
         return fromString(string, pattern, null);
     }
 
-    public static Date fromString(@NonNull String string, @NonNull String pattern, @Nullable Locale locale)
+    public static Date fromString(@Nullable String string, @NonNull String pattern, @Nullable Locale locale)
             throws ParseException
     {
-        Objects.requireNonNull(string, "The string value of the date must not be null!");
+        if(JText.isNullOrEmpty(string))
+        {
+            return null;
+        }
         Objects.requireNonNull(pattern, "The format pattern must not be null!");
         return getParsingFormat(pattern, locale).parse(string);
     }
@@ -87,6 +89,7 @@ public class DateTime
     @NonNull
     public static SimpleDateFormat getStringerFormat(@Nullable String pattern, @Nullable Locale locale)
     {
-        return new SimpleDateFormat(JText.isNullOrEmpty(pattern) ? "yyyy-MM-dd HH:mm:ss.SSS" : pattern, locale == null ? Locale.getDefault() : locale);
+        return new SimpleDateFormat(JText.isNullOrEmpty(pattern) ? "yyyy-MM-dd HH:mm:ss.SSS" : pattern,
+                locale == null ? Locale.getDefault() : locale);
     }
 }

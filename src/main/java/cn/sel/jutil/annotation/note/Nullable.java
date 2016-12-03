@@ -30,12 +30,7 @@ import java.lang.annotation.Target;
 public @interface Nullable
 {
     /**
-     * Comments for the annotated item.
-     */
-    String comment() default "";
-
-    /**
-     * Alias for {@link #comment()}
+     * <p>Comments for the annotated item.</p>
      */
     String value() default "";
 }

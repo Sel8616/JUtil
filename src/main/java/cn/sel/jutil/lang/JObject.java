@@ -20,7 +20,8 @@ import java.util.Objects;
 
 public class JObject
 {
-    public static <T> boolean include(T[] array, T object)
+    @SafeVarargs
+    public static <T> boolean include(T object, T... array)
     {
         for(T item : array)
         {

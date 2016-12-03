@@ -17,8 +17,9 @@ package cn.sel.jutil.application;
 
 import cn.sel.jutil.annotation.note.NonNull;
 import cn.sel.jutil.annotation.note.Nullable;
+import cn.sel.jutil.constant.CharacterCase;
+import cn.sel.jutil.constant.CharacterParity;
 import cn.sel.jutil.lang.JText;
-import cn.sel.jutil.lang.JText.StringParity;
 
 import java.security.SecureRandom;
 
@@ -32,124 +33,124 @@ public class RandomString
     public static final String NUMBERS = "0123456789";
     private static final String INVALID_LENGTH = "Length of the expected random string must be larger than 0!";
     private static final String INVALID_DIGITS = "Digits for the expected random string must not be null or empty!";
-    private static final SecureRandom secureRandom = new SecureRandom();
+    private static final SecureRandom SECURE_RANDOM = new SecureRandom();
 
     /**
      * Generate a random string using '0'-'9' with the specifications.
      *
-     * @param length       Length of the expected string.
-     * @param stringParity {@link StringParity}
+     * @param length          Length of the expected string.
+     * @param characterParity {@link CharacterParity}
      *
      * @return A random string.
      */
     @NonNull
-    public static String generateWithNumbers(int length, @Nullable StringParity stringParity)
+    public static String generateWithNumbers(int length, @Nullable CharacterParity characterParity)
     {
-        return generate(length, NUMBERS, stringParity);
+        return generate(length, NUMBERS, characterParity);
     }
 
     /**
      * Generate a random string using letters with the specifications.
      *
-     * @param length        Length of the expected string.
-     * @param characterCase {@link CharacterCase}
-     * @param stringParity  {@link StringParity}
+     * @param length          Length of the expected string.
+     * @param characterCase   {@link CharacterCase}
+     * @param characterParity {@link CharacterParity}
      *
      * @return A random string.
      */
     @NonNull
-    public static String generateWithLetters(int length, @Nullable CharacterCase characterCase, @Nullable StringParity stringParity)
+    public static String generateWithLetters(int length, @Nullable CharacterCase characterCase, @Nullable CharacterParity characterParity)
     {
         if(characterCase == null)
         {
             characterCase = CharacterCase.ANY;
         }
-        if(stringParity == null)
+        if(characterParity == null)
         {
-            stringParity = StringParity.ANY;
+            characterParity = CharacterParity.ANY;
         }
-        String letters = null;
+        String digits = null;
         switch(characterCase)
         {
             case ANY:
-                letters = LOWER_CHARS + UPPER_CHARS;
+                digits = LOWER_CHARS + UPPER_CHARS;
                 break;
             case LOWER:
-                letters = LOWER_CHARS;
+                digits = LOWER_CHARS;
                 break;
             case UPPER:
-                letters = UPPER_CHARS;
+                digits = UPPER_CHARS;
                 break;
         }
-        return generate(length, letters.toCharArray(), stringParity);
+        return generate(length, digits.toCharArray(), characterParity);
     }
 
     /**
      * Generate a random string with the specifications.
      *
-     * @param length        Length of the expected string.
-     * @param characterCase {@link CharacterCase}
-     * @param stringParity  {@link StringParity}
+     * @param length          Length of the expected string.
+     * @param characterCase   {@link CharacterCase}
+     * @param characterParity {@link CharacterParity}
      *
      * @return A random string.
      */
     @NonNull
-    public static String generateWithNumbersAndLetters(int length, @Nullable CharacterCase characterCase, @Nullable StringParity stringParity)
+    public static String generateWithNumbersAndLetters(int length, @Nullable CharacterCase characterCase, @Nullable CharacterParity characterParity)
     {
         if(characterCase == null)
         {
             characterCase = CharacterCase.ANY;
         }
-        if(stringParity == null)
+        if(characterParity == null)
         {
-            stringParity = StringParity.ANY;
+            characterParity = CharacterParity.ANY;
         }
-        String letters = NUMBERS;
+        String digits = NUMBERS;
         switch(characterCase)
         {
             case ANY:
-                letters += LOWER_CHARS + UPPER_CHARS;
+                digits += LOWER_CHARS + UPPER_CHARS;
                 break;
             case LOWER:
-                letters += LOWER_CHARS;
+                digits += LOWER_CHARS;
                 break;
             case UPPER:
-                letters += UPPER_CHARS;
+                digits += UPPER_CHARS;
                 break;
         }
-        return generate(length, letters.toCharArray(), stringParity);
+        return generate(length, digits.toCharArray(), characterParity);
     }
 
     /**
      * Generate a random string of specified length with specified digits.
      *
-     * @param length       Length of the expected string.
-     * @param digits       An array which contains all the available characters.
-     * @param stringParity {@link StringParity}
+     * @param length          Length of the expected string.
+     * @param digits          An array which contains all the available characters.
+     * @param characterParity {@link CharacterParity}
      *
      * @return A random string.
      */
     @NonNull
-    public static String generate(int length, @NonNull String digits, @Nullable StringParity stringParity)
+    public static String generate(int length, @NonNull String digits, @Nullable CharacterParity characterParity)
     {
         if(digits == null || digits.length() < 1)
         {
             throw new IllegalArgumentException(INVALID_DIGITS);
         }
-        return generate(length, digits.toCharArray(), stringParity);
+        return generate(length, digits.toCharArray(), characterParity);
     }
 
     /**
      * Generate a random string of specified length with specified digits.
      *
-     * @param length       Length of the expected string.
-     * @param digits       An array which contains all the available characters.
-     * @param stringParity {@link StringParity}
+     * @param length          Length of the expected string.
+     * @param digits          An array which contains all the available characters.
+     * @param characterParity {@link CharacterParity}
      *
      * @return A random string.
      */
     @NonNull
-    public static String generate(int length, @NonNull char[] digits, @Nullable StringParity stringParity)
+    public static String generate(int length, @NonNull char[] digits, @Nullable CharacterParity characterParity)
     {
         if(length < 1)
         {
@@ -159,9 +160,9 @@ public class RandomString
         {
             throw new IllegalArgumentException(INVALID_DIGITS);
         }
-        if(stringParity == null)
+        if(characterParity == null)
         {
-            stringParity = StringParity.ANY;
+            characterParity = CharacterParity.ANY;
         }
         String result;
         char[] cs = new char[length];
@@ -169,17 +170,10 @@ public class RandomString
         {
             for(int i = 0; i < length; i++)
             {
-                cs[i] = digits[secureRandom.nextInt(digits.length)];
+                cs[i] = digits[SECURE_RANDOM.nextInt(digits.length)];
             }
             result = String.valueOf(cs);
-        } while(stringParity != StringParity.ANY && JText.getParity(result) != stringParity);
+        } while(characterParity != CharacterParity.ANY && JText.getParity(result) != characterParity);
         return result;
-    }
-
-    public enum CharacterCase
-    {
-        ANY,
-        LOWER,
-        UPPER
     }
 }

@@ -30,12 +30,12 @@ public class Test_JObject
         System.out.println("< JObject >");
         System.out.println("================================================================");
         System.out.println("Include? new Integer[]{1, 2, 3, 4, 5}, 1?");
-        boolean include1 = JObject.include(new Integer[]{1, 2, 3, 4, 5}, 1);
+        boolean include1 = JObject.include(1, new Integer[]{1, 2, 3, 4, 5});
         System.out.println(include1);
         Assert.assertEquals(true, include1);
         System.out.println("----------------------------------------------------------------");
         System.out.println("Include? new String[]{\"abc\", \"xyz\"}, \"aaa\")");
-        boolean include2 = JObject.include(new String[]{"abc", "xyz"}, "aaa");
+        boolean include2 = JObject.include("aaa", new String[]{"abc", "xyz"});
         System.out.println(include2);
         Assert.assertEquals(false, include2);
         System.out.println("----------------------------------------------------------------");

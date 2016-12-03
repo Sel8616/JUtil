@@ -21,7 +21,6 @@ public class JNumeric
 {
     public static boolean between(Number number, double minValue, double maxValue)
     {
-        Class<? extends Number> clazz = number.getClass();
         double doubleValue = number.doubleValue();
         return doubleValue >= minValue && doubleValue <= maxValue;
     }

@@ -13,29 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.sel.jutil.annotation.copyright;
+package cn.sel.jutil.constant;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-/**
- * Author info.
- */
-@Target({ElementType.PACKAGE, ElementType.TYPE, ElementType.ANNOTATION_TYPE, ElementType.METHOD})
-@Retention(RetentionPolicy.CLASS)
-public @interface Author
+public enum CharacterParity
 {
-    String name();
-
-    String email();
-
-    String website() default "";
-
-    String org() default "";
-
-    String org_email() default "";
-
-    String org_website() default "";
+    ANY,
+    EVEN,
+    ODD
 }

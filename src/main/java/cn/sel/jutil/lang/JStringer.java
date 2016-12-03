@@ -27,69 +27,6 @@ public class JStringer
 {
     protected static final String UNSUPPORTED_CLASS = "Unsupported class!";
 
-    //region String -> Primitive Types
-    public static int string2int(String string)
-    {
-        return Integer.parseInt(string);
-    }
-
-    public static short string2short(String string)
-    {
-        return Short.parseShort(string);
-    }
-
-    public static long string2long(String string)
-    {
-        return Long.parseLong(string);
-    }
-
-    public static float string2float(String string)
-    {
-        return Float.parseFloat(string);
-    }
-
-    public static double string2double(String string)
-    {
-        return Double.parseDouble(string);
-    }
-
-    public static boolean string2boolean(String string)
-    {
-        return Boolean.parseBoolean(string);
-    }
-    //endregion
-
-    //region String -> Wrapper Types
-    public static Integer string2Integer(String string)
-    {
-        return Integer.valueOf(string);
-    }
-
-    public static Short string2Short(String string)
-    {
-        return Short.valueOf(string);
-    }
-
-    public static Long string2Long(String string)
-    {
-        return Long.valueOf(string);
-    }
-
-    public static Float string2Float(String string)
-    {
-        return Float.valueOf(string);
-    }
-
-    public static Double string2Double(String string)
-    {
-        return Double.valueOf(string);
-    }
-
-    public static Boolean string2Boolean(String string)
-    {
-        return Boolean.valueOf(string);
-    }
-
     @SuppressWarnings("unchecked")
     public static <T> T string2Object(String string, Class<T> clazz)
     {
@@ -374,7 +311,8 @@ public class JStringer
     }
 
     @Nullable
-    public static <K, V> String map2String(@Nullable Map<K, V> map, @Nullable KVPattern kvPattern, @Nullable String dateTimePattern, @Nullable Locale locale)
+    public static <K, V> String map2String(@Nullable Map<K, V> map, @Nullable KVPattern kvPattern, @Nullable String dateTimePattern,
+            @Nullable Locale locale)
     {
         if(map == null)
         {
@@ -409,6 +347,7 @@ public class JStringer
     //endregion
 
     @Nullable
+    @SuppressWarnings("unchecked")
     private static String getObjectString(@Nullable Object object, @NonNull SimpleDateFormat simpleDateFormat)
     {
         if(object != null)
