@@ -133,7 +133,7 @@ public class EntityCompiler
         {
             return "public " + fieldType + ' ' + getPostfix(fieldType, fieldName) + "()" + '{' + "return this." + fieldName + ';' + '}';
         }
-        return "public " + fieldType + " getNode" + getPostfix(fieldType, fieldName) + "()" + '{' + "return this." + fieldName + ';' + '}';
+        return "public " + fieldType + " get" + getPostfix(fieldType, fieldName) + "()" + '{' + "return this." + fieldName + ';' + '}';
     }
 
     /**
