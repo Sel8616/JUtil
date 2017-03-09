@@ -10,7 +10,7 @@ __JUtil__ is a group of utils for JAVA programming.
 
 |groupId|artifactId|version|
 |:-----:|:--------:|:-----:|
-|cn.sel |jutil     |0.3    |
+|cn.sel |jutil     |0.3.1  |
 
 [![Download](https://api.bintray.com/packages/sel8616/maven/jutil/images/download.svg)](https://bintray.com/sel8616/maven/jutil/_latestVersion)
 

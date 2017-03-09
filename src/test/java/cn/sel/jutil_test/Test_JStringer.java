@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.sel.jutil.test;
+package cn.sel.jutil_test;
 
 import cn.sel.jutil.lang.JStringer;
 import cn.sel.jutil.lang.JStringer.KVPattern;
@@ -29,12 +29,12 @@ public class Test_JStringer
         System.out.println();
         System.out.println("< JStringer >");
         System.out.println("================================================================");
-        int i = JStringer.string2int("12");
-        short s = JStringer.string2short("12");
-        long l = JStringer.string2long("12");
-        float f = JStringer.string2float("12");
-        double d = JStringer.string2double("12");
-        boolean b = JStringer.string2boolean("true");
+        int i = JStringer.string2Object("12", int.class);
+        short s = JStringer.string2Object("12", short.class);
+        long l = JStringer.string2Object("12", long.class);
+        float f = JStringer.string2Object("12", float.class);
+        double d = JStringer.string2Object("12", double.class);
+        boolean b = JStringer.string2Object("true", boolean.class);
         Object ii = JStringer.string2Object("123", int.class);
         Object ss = JStringer.string2Object("123", short.class);
         Object ll = JStringer.string2Object("123", long.class);

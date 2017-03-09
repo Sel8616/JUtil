@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.sel.jutil.test;
+package cn.sel.jutil_test;
 
+import cn.sel.jutil.constant.CharacterParity;
 import cn.sel.jutil.lang.JText;
 import org.junit.Assert;
 import org.junit.Test;
@@ -38,9 +39,9 @@ public class Test_JText
         Assert.assertEquals(true, bool);
         System.out.println("----------------------------------------------------------------");
         System.out.println("getParity(\"JUtil\")");
-        JText.StringParity parity = JText.getParity("JUtil");
+        CharacterParity parity = JText.getParity("JUtil");
         System.out.println(parity);
-        Assert.assertEquals(JText.StringParity.ODD, parity);
+        Assert.assertEquals(CharacterParity.ODD, parity);
         System.out.println("----------------------------------------------------------------");
         System.out.println("getPrefix(\"cn.sel.jutil\",7)");
         String prefix = JText.getPrefix("cn.sel.jutil", 7);

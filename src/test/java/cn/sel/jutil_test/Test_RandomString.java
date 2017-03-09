@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.sel.jutil.test;
+package cn.sel.jutil_test;
 
 import cn.sel.jutil.application.RandomString;
-import cn.sel.jutil.application.RandomString.CharacterCase;
-import cn.sel.jutil.lang.JText.StringParity;
+import cn.sel.jutil.constant.CharacterCase;
+import cn.sel.jutil.constant.CharacterParity;
 import org.junit.Test;
 
 public class Test_RandomString
@@ -29,29 +29,29 @@ public class Test_RandomString
         System.out.println("< RandomString >");
         System.out.println("================================================================");
         System.out.println("generateWithNumbers(6,EVEN)");
-        System.out.println(RandomString.generateWithNumbers(6, StringParity.EVEN));
+        System.out.println(RandomString.generateWithNumbers(6, CharacterParity.EVEN));
         System.out.println("----------------------------------------------------------------");
         System.out.println("generateWithNumbers(6,ODD)");
-        System.out.println(RandomString.generateWithNumbers(6, StringParity.ODD));
+        System.out.println(RandomString.generateWithNumbers(6, CharacterParity.ODD));
         System.out.println("----------------------------------------------------------------");
         System.out.println("generateWithLetters(7,UPPER,ODD)");
-        System.out.println(RandomString.generateWithLetters(7, CharacterCase.UPPER, StringParity.ODD));
+        System.out.println(RandomString.generateWithLetters(7, CharacterCase.UPPER, CharacterParity.ODD));
         System.out.println("----------------------------------------------------------------");
         System.out.println("generateWithLetters(7,LOWER,EVEN)");
-        System.out.println(RandomString.generateWithLetters(7, CharacterCase.LOWER, StringParity.EVEN));
+        System.out.println(RandomString.generateWithLetters(7, CharacterCase.LOWER, CharacterParity.EVEN));
         System.out.println("----------------------------------------------------------------");
         System.out.println("generateWithNumbersAndLetters(8,UPPER,EVEN)");
-        System.out.println(RandomString.generateWithNumbersAndLetters(8, CharacterCase.UPPER, StringParity.EVEN));
+        System.out.println(RandomString.generateWithNumbersAndLetters(8, CharacterCase.UPPER, CharacterParity.EVEN));
         System.out.println("----------------------------------------------------------------");
         System.out.println("generateWithNumbersAndLetters(8,LOWER,ODD)");
-        System.out.println(RandomString.generateWithNumbersAndLetters(8, CharacterCase.LOWER, StringParity.ODD));
+        System.out.println(RandomString.generateWithNumbersAndLetters(8, CharacterCase.LOWER, CharacterParity.ODD));
         System.out.println("----------------------------------------------------------------");
         System.out.println("generateWithNumbersAndLetters(10,\"AxByCzD0\",EVEN)");
-        System.out.println(RandomString.generate(10, "AxByCzD0", StringParity.EVEN));
+        System.out.println(RandomString.generate(10, "AxByCzD0", CharacterParity.EVEN));
         System.out.println("----------------------------------------------------------------");
         System.out.println("generateWithNumbersAndLetters(10,['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],ODD)");
         System.out.println(RandomString.generate(10, new char[]{
                 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'
-        }, StringParity.ODD));
+        }, CharacterParity.ODD));
     }
 }
